@@ -36,18 +36,18 @@ export default function Form() {
       </div>
       <Input
         label="Arrival Rate"
-        title="\lambda"
+        title="$\lambda$"
         change={(event) => setLambda(parseInt(event.target.value))}
       />
       <Input
         label="Service Rate"
-        title="\mu"
+        title="$\mu$"
         change={(event) => setMicro(parseInt(event.target.value))}
       />
       {queueType === 'M/M/s' ? (
         <Input
           label="Number of Server"
-          title="s"
+          title="$S$"
           change={(event) => setServer(parseInt(event.target.value))}
         />
       ) : (
