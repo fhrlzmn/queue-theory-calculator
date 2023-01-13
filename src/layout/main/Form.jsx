@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import Alert from '../../components/Alert';
 import Input from '../../components/Input';
 import { QueueContext } from '../../context/QueueContext';
 
@@ -11,13 +12,23 @@ export default function Form() {
   const [server, setServer] = Context.server;
   const calculate = Context.calculate;
 
+  const [isError, setIsError] = useState(false);
+
   const [queueType, setQueueType] = useState('M/M/s');
+
+  function closeAlert() {
+    setIsError(false);
+  }
 
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        calculate();
+        if (lambda === 0 || micro === 0 || server === 0) {
+          setIsError(true);
+        } else {
+          calculate();
+        }
       }}
       className="flex flex-col gap-4 w-full basis-1/4 p-5 bg-white rounded-lg drop-shadow-sm"
     >
@@ -34,6 +45,7 @@ export default function Form() {
           <option value="M/M/1">M/M/1</option>
         </select>
       </div>
+      {isError ? <Alert click={closeAlert} /> : ''}
       <Input
         label="Arrival Rate"
         title="λ"
@@ -55,7 +67,7 @@ export default function Form() {
       )}
       <button
         type="submit"
-        className="p-2 my-2 bg-blue-400 rounded text-white font-semibold hover:drop-shadow-md hover:bg-red-300"
+        className="p-2 my-2 bg-blue-400 rounded text-white font-semibold hover:drop-shadow-md hover:bg-blue-500 active:bg-red-400"
       >
         Calculate
       </button>
