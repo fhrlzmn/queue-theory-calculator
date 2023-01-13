@@ -11,44 +11,44 @@ export default function ResultCards() {
     {
       result: result.L,
       unit: 'Customers',
-      title: '$L$',
+      title: 'L',
       desc: 'Average Customers in System',
     },
     {
       result: result.Lq,
       unit: 'Customers',
-      title: '$Lq$',
+      title: 'Lq',
       desc: 'Average Customers in Queue',
     },
     {
       result: result.W,
       unit: 'Hours',
-      title: '$W$',
+      title: 'W',
       desc: 'Average Time spent in System',
     },
     {
       result: result.Wq,
       unit: 'Hours',
-      title: '$Wq$',
+      title: 'Wq',
       desc: 'Average Time spent in Queue',
     },
     {
       result: result.Rho,
       unit: 'Percent',
-      title: '$\\rho$',
+      title: 'ρ',
       desc: 'Traffic Intensity',
     },
     {
       result: result.P0,
       unit: 'Percent',
-      title: '$P_0$',
+      title: 'P0',
       desc: 'Probability 0 Customer in System',
     },
 
     {
       result: result.Pq,
       unit: 'Percent',
-      title: '$P_q$',
+      title: 'Pq',
       desc: 'Probability Server Busy',
     },
   ];
